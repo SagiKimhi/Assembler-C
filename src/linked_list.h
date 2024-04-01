@@ -27,4 +27,7 @@ llalloc(void);
 extern void 
 print_linked_list(struct linked_list *p, FILE *file);
 
+extern void
+ll_free(struct linked_list* p);
+
 #endif /* !LINKED_LIST_H */

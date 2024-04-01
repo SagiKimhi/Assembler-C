@@ -42,6 +42,16 @@ llalloc(void)
     return (struct linked_list*)malloc(sizeof(struct linked_list));
 }
 
+void
+ll_free(struct linked_list* p)
+{
+    if (p->next) {
+        ll_free(p->next);
+        p->pre = NULL;
+        free(p);
+    }
+}
+
 void print_linked_list(struct linked_list *p, FILE *file) {
     if (file == NULL) {
         printf("Error: Invalid file pointer.\n");
